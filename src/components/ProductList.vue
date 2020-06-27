@@ -1,26 +1,15 @@
 <template>
     
     <ul class="catalog__list">
-        <li class="catalog__item" v-for="(product, index) in products" :key="index">
-        <a class="catalog__pic" href="#">
-            <img :src="product.img" :alt="product.title">
-        </a>
-
-        <h3 class="catalog__title">
-            <a href="#">
-            {{ product.title }}
-            </a>
-        </h3>
-
-        <span class="catalog__price">
-            {{ product.price }} ₽
-        </span>
-        </li>
+        <ProductItem v-for="product in products" :key="product.id" />
     </ul>
 </template>
 
 <script>
+import ProductItem from './components/ProductItem.vue'
+
 export default {
+    name: 'ProductList',
     props: ['products']
 }
 </script>
